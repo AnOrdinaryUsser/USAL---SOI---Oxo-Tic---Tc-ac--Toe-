@@ -1,8 +1,3 @@
-
-
-# Sergio Fernández Marcos
-# Sergio García González
-
 #Ruta del fichero de config.cfg (directorio actual)
 
 	CONFIGURACION="oxo.cfg"
