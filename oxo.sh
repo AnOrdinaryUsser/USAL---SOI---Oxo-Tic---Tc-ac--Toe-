@@ -318,7 +318,7 @@
 
 	function ESTA_CELDA_VACIA 
 	{
-	read -e -p "Introduce un número (0-8)?: " CELDA
+	read -e -p "Introduce un número (1-9)?: " CELDA
 	case $CELDA in
 		[1-9]) if [ -z ${array[$CELDA]} ];
 			   then
