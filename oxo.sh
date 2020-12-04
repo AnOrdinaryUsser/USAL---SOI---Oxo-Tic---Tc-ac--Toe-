@@ -99,19 +99,15 @@
 	
 	function REGLAS_PARA_GANAR
 	{
-		if [ $VALOR_CELDA == "${array[0]}" ] && [ $VALOR_CELDA == "${array[1]}" ] && [ $VALOR_CELDA == "${array[2]}" ];
+		if [ $VALOR_CELDA == "${array[1]}" ] && [ $VALOR_CELDA == "${array[2]}" ] && [ $VALOR_CELDA == "${array[3]}" ];
 		then
 		MENSAJE_GANADOR
 		FIN=true
-		elif [ $VALOR_CELDA == "${array[3]}" ] && [ $VALOR_CELDA == "${array[4]}" ] && [ $VALOR_CELDA == "${array[5]}" ];
+		elif [ $VALOR_CELDA == "${array[4]}" ] && [ $VALOR_CELDA == "${array[5]}" ] && [ $VALOR_CELDA == "${array[6]}" ];
 		then
 		MENSAJE_GANADOR
 		FIN=true
-		elif [ $VALOR_CELDA == "${array[6]}" ] && [ $VALOR_CELDA == "${array[7]}" ] && [ $VALOR_CELDA == "${array[8]}" ];
-		then
-		MENSAJE_GANADOR
-		FIN=true
-		elif [ $VALOR_CELDA == "${array[0]}" ] && [ $VALOR_CELDA == "${array[3]}" ] && [ $VALOR_CELDA == "${array[6]}" ];
+		elif [ $VALOR_CELDA == "${array[7]}" ] && [ $VALOR_CELDA == "${array[8]}" ] && [ $VALOR_CELDA == "${array[9]}" ];
 		then
 		MENSAJE_GANADOR
 		FIN=true
@@ -123,11 +119,15 @@
 		then
 		MENSAJE_GANADOR
 		FIN=true
-		elif [ $VALOR_CELDA == "${array[0]}" ] && [ $VALOR_CELDA == "${array[4]}" ] && [ $VALOR_CELDA == "${array[8]}" ];
+		elif [ $VALOR_CELDA == "${array[3]}" ] && [ $VALOR_CELDA == "${array[6]}" ] && [ $VALOR_CELDA == "${array[9]}" ];
 		then
 		MENSAJE_GANADOR
 		FIN=true
-		elif [ $VALOR_CELDA == "${array[6]}" ] && [ $VALOR_CELDA == "${array[4]}" ] && [ $VALOR_CELDA == "${array[2]}" ];
+		elif [ $VALOR_CELDA == "${array[1]}" ] && [ $VALOR_CELDA == "${array[5]}" ] && [ $VALOR_CELDA == "${array[9]}" ];
+		then
+		MENSAJE_GANADOR
+		FIN=true
+		elif [ $VALOR_CELDA == "${array[7]}" ] && [ $VALOR_CELDA == "${array[5]}" ] && [ $VALOR_CELDA == "${array[3]}" ];
 		then
 		MENSAJE_GANADOR
 		FIN=true
