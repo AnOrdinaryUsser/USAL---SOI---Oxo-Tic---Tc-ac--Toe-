@@ -166,10 +166,10 @@
 	{
 		if [[ $COMIENZO -eq 1 ]];
     then
- 			echo -e "1.0.4:2.0.$CELDA" > oxo.log.10
+ 			echo -e "1.0.5:2.0.$CELDA" > oxo.log.10
 
  		else [[ $COMIENZO -eq 2 ]];
-   		echo -e "2.0.4:2.0.$CELDA" > oxo.log.10       
+   		echo -e "2.0.5:2.0.$CELDA" > oxo.log.10       
    	fi            
 	}
 
@@ -183,10 +183,10 @@
 	{
  		if [[ $COMIENZO -eq 1 ]];
    	then
- 			echo -e "1.0.4:1.0.$CELDA" > oxo.log.10
+ 			echo -e "1.0.5:1.0.$CELDA" > oxo.log.10
  			
  		else [[ $COMIENZO -eq 2 ]];
- 			echo -e "2.0.4:1.0.$CELDA" > oxo.log.10
+ 			echo -e "2.0.5:1.0.$CELDA" > oxo.log.10
  		fi            
 	}
 
@@ -223,7 +223,7 @@
 	{
 		echo -e "\e[1;34mLa maquina ha seleccionado la posicion $1"
 		case $1 in
-			[0-8]) if [ -z ${array[$1]} ];
+			[1-9]) if [ -z ${array[$1]} ];
 			   then
 			   ESTADO_CELDA=vacia
 			   else
@@ -244,7 +244,7 @@
 		FICHA_INI_M=$(($RANDOM%8))
 		echo "info: la ficha es $FICHA_INI_M"
 	
-		if [[ $TEMP -eq 1 ]] && [[ $FICHA_INI_M -eq 4 ]];
+		if [[ $TEMP -eq 1 ]] && [[ $FICHA_INI_M -eq 5 ]];
 		then
 			echo -e "\e[1;31mERROR: Ha decido no mover la ficha central, por lo que no la puede mover"
 			sleep 3
@@ -299,7 +299,7 @@
 	{
 	CELDA=$1
 	case $CELDA in
-		[0-8]) if [ -z ${array[$CELDA]} ];
+		[1-9]) if [ -z ${array[$CELDA]} ];
 			   then
 			   ESTADO_CELDA=vacia
 			   else
@@ -320,13 +320,13 @@
 	{
 	read -e -p "Introduce un número (0-8)?: " CELDA
 	case $CELDA in
-		[0-8]) if [ -z ${array[$CELDA]} ];
+		[1-9]) if [ -z ${array[$CELDA]} ];
 			   then
 			   ESTADO_CELDA=vacia
 			   else
 			   ESTADO_CELDA=novacia
 			   fi;;
-		*) echo -e "Introduce un número (0-8)?: "
+		*) echo -e "Introduce un número (1-9)?: "
 		ESTA_CELDA_VACIA;;
 	esac
 	}
@@ -360,7 +360,7 @@
 	echo -e "\e[1;32mIntroduzca la posición de la ficha que desea mover?: "
 	read FICHA_INI_J
 	# Comprobaciones iniciales con CENTRAL
-	if [[ $TEMP -eq 1 ]] && [[ $FICHA_INI_J -eq 4 ]];
+	if [[ $TEMP -eq 1 ]] && [[ $FICHA_INI_J -eq 5 ]];
 	then
 		echo -e "\e[1;31mERROR: HA DECIDO NO MOVER LA FICHA CENTRAL"
 		sleep 3
@@ -412,13 +412,13 @@
 	{
 	CELDA=$1
 	case $CELDA in
-		[0-8]) if [ -z ${array[$CELDA]} ];
+		[1-9]) if [ -z ${array[$CELDA]} ];
 			   then
 			   ESTADO_CELDA=vacia
 			   else
 			   ESTADO_CELDA=novacia
 			   fi;;
-		*) echo -e "\e[1;32mIntroduce un número (0-8)?: "
+		*) echo -e "\e[1;32mIntroduce un número (1-9)?: "
 		ESTA_CELDA_VACIA_MV_J;;
 	esac
 	}
@@ -615,17 +615,17 @@
                    	;;
                 "CE") #CENTRAL =Si la ficha central 
                    	FICHACENTRAL
-           			;;
-				"R") # Nos permite cambiar la ruta 
+           		;;
+		"R") # Nos permite cambiar la ruta 
                     CAMBIARRUTA 
                     ;;
                	"S") #SALIR: salir del juego
-        			SALIR_CONFIG=true
+        		SALIR_CONFIG=true
                  	;;
             	*) #DEFAULT
-					SALIR_CONFIG=true
-					;;
-			esac
+			SALIR_CONFIG=true
+			;;
+		esac
      	done
  }
 
@@ -660,7 +660,7 @@ function JUGAR
 	echo ""
 	if [[ $COMIENZO -eq 1 ]];
 	then
-		array[4]=$CAR_1
+		array[5]=$CAR_1
 		CAR_JUGADOR_1=$CAR_1
 		CAR_JUGADOR_2=$CAR_2
 		JUGADOR_1=$NOMBRE
@@ -669,7 +669,7 @@ function JUGAR
 	
 	elif [[ $COMIENZO -eq 2 ]];
 	then
-		array[4]=$CAR_1
+		array[5]=$CAR_1
 		CAR_JUGADOR_1=$CAR_2
 		CAR_JUGADOR_2=$CAR_1
 		JUGADOR_1=$NOMBRE
@@ -918,7 +918,7 @@ done
 
 		FLAG=desactivo
 		
-		if [ "${var1[2]}" == 4 ];
+		if [ "${var1[2]}" == 5 ];
 		then
 		FLAG=activo
 		fi
@@ -929,12 +929,12 @@ done
 		LINEAS=$(wc -l<tmp7)
 		#echo "lineas: $LINEAS"
 		
-		while [[ "$FLAG" == "activo" ]] && [[ "${var1[i]}" != 4 ]];
+		while [[ "$FLAG" == "activo" ]] && [[ "${var1[i]}" != 5 ]];
 		do
 			((RESULTADO+=1))
-			((i+=4))
+			((i+=5))
 			#echo "var1: ${var1[i]} i: $i"
-			if [[ "${var1[i]}" == 4 ]] || [[ "$i" -gt "$LINEAS" ]];
+			if [[ "${var1[i]}" == 5 ]] || [[ "$i" -gt "$LINEAS" ]];
 			then
 				FLAG=desactivo
 				((RESULTADO+=1))
